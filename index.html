@@ -9,6 +9,17 @@
   <script src="TemplateData/profiler.js"></script>
   </head>
   <body>
+	<div id="reader"
+	 style="
+		width:350px;
+		height:350px;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%, -50%);
+		display:none;
+		z-index:9999;">
+	</div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=600 height=960 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -117,6 +128,7 @@
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
+				window.unityInstance = unityInstance;
                 document.querySelector("#unity-loading-bar").style.display = "none";
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
