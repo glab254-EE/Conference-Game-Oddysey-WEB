@@ -1,4 +1,5 @@
 let qrScanner = null;
+let scannerRunning = false;
 
 function startScanner() {
     const reader = document.getElementById("reader");
@@ -23,9 +24,9 @@ function startScanner() {
             });
         },
         function(errorMessage) {
-            // Игнорируем ошибки каждого кадра
         }
     );
+    scannerRunning = true; 
 }
 
 async function stopScanner() {
