@@ -3,7 +3,7 @@ let scannerRunning = false;
 
 function startScanner() {
     const reader = document.getElementById("reader");
-    reader.style.display = "block";
+    reader.style.display="block";
     qrScanner = new Html5Qrcode("reader");
     qrScanner.start(
         {
@@ -14,14 +14,11 @@ function startScanner() {
             qrbox: 250
         },
         function(decodedText) {
-            qrScanner.stop().then(() => {
-                reader.style.display = "none";
-                unityInstance.SendMessage(
-                    "QRScanner",
-                    "OnQRCodeDetected",
-                    decodedText
-                );
-            });
+			unityInstance.SendMessage(
+				"QRScanner",
+				"OnQRCodeDetected",
+				decodedText
+			);
         },
         function(errorMessage) {
         }
@@ -34,7 +31,7 @@ async function stopScanner() {
         return;
     await qrScanner.stop();
     await qrScanner.clear();
-    document.getElementById("reader").style.display = "none";
+    document.getElementById("reader").styleяdisplay="none";
     qrScanner = null;
     scannerRunning = false;
 }

@@ -11,18 +11,17 @@
   <script src="QRScanner.js"></script>
   </head>
   <body>
-	<div id="reader"
-	 style="
-		width:350px;
-		height:350px;
-		position:absolute;
-		top:50%;
-		left:50%;
-		transform:translate(-50%, -50%);
-		display:none;
-		z-index:9999;">
-	</div>
     <div id="unity-container" class="unity-desktop">
+		<div inert
+		 id="reader"
+		 style="
+			width:600px;
+			height:600px;
+			top: 100px;
+			position: absolute;
+			display: none;
+			z-index:50;">
+		</div>
       <canvas id="unity-canvas" width=600 height=960 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
