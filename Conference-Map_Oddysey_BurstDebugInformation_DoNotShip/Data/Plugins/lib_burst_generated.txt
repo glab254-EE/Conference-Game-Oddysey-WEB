@@ -10,7 +10,6 @@ Library: D:\ModdingAndUnity\Conference-Map_Oddysey\Temp\BurstOutput\Data\Plugins
 --target-framework=NetFramework
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=D:\ModdingAndUnity\Conference-Map_Oddysey\Temp\Burst
---debug=Full
 --generate-static-linkage-methods
 --key-folder=D:/Unity/Hub/Editor/6000.4.7f1/Editor/Data/PlaybackEngines/WebGLSupport
 --decode-folder=D:\ModdingAndUnity\Conference-Map_Oddysey\Library\Burst
@@ -128,7 +127,6 @@ Library: D:\ModdingAndUnity\Conference-Map_Oddysey\Temp\BurstOutput\Data\Plugins
 --target-framework=NetFramework
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=D:\ModdingAndUnity\Conference-Map_Oddysey\Temp\Burst
---debug=Full
 --generate-static-linkage-methods
 --key-folder=D:/Unity/Hub/Editor/6000.4.7f1/Editor/Data/PlaybackEngines/WebGLSupport
 --decode-folder=D:\ModdingAndUnity\Conference-Map_Oddysey\Library\Burst
@@ -165,7 +163,6 @@ Library: D:\ModdingAndUnity\Conference-Map_Oddysey\Temp\BurstOutput\Data\Plugins
 --float-mode=Fast
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=D:\ModdingAndUnity\Conference-Map_Oddysey\Temp\Burst
---debug=Full
 --generate-static-linkage-methods
 --key-folder=D:/Unity/Hub/Editor/6000.4.7f1/Editor/Data/PlaybackEngines/WebGLSupport
 --decode-folder=D:\ModdingAndUnity\Conference-Map_Oddysey\Library\Burst
