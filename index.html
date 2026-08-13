@@ -4,9 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | Conference-Map_Oddysey</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width=300 height=800 tabindex="-1" style="width: 400px; height: 800px; background: #231F20"></canvas>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=400 height=800 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-logo-title-footer"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Conference-Map_Oddysey</div>
+      </div>
+    </div>
 	<div inert
 	 id="reader"
 	 style="
@@ -22,6 +38,24 @@
 	  <script src="html5-qrcode.min.js"></script>
 	  <script src="QRScanner.js"></script>
     <script>
+      function unityShowBanner(msg, type) {
+        var warningBanner = document.querySelector("#unity-warning");
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
      
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -49,6 +83,7 @@
 			companyName: "Swordfish",
 			productName: "Conference-Map_Oddysey",
 			productVersion: "0.5",
+	        showBanner: unityShowBanner,
         // errorHandler: function(err, url, line) {
         //    alert("error " + err + " occurred at line " + line);
         //    // Return 'true' if you handled this error and don't want Unity
@@ -57,6 +92,28 @@
         // },
       };
 
+		if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        document.querySelector("#unity-container").className = "unity-mobile";
+        canvas.className = "unity-mobile";
+
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
+
+
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+        canvas.style.width = "400px";
+        canvas.style.height = "800px";
+      }
+
+      document.querySelector("#unity-loading-bar").style.display = "block";
 	var script = document.createElement("script");
 	  script.src = loaderUrl;
 	  script.onload = () => {
@@ -68,6 +125,7 @@
 				alert(message);
 			  });
 			};
+      document.body.appendChild(script);
  
     </script>
   </body>
