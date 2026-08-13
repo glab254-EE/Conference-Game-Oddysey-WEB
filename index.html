@@ -42,13 +42,13 @@
       var loaderUrl = buildUrl + "/Conference-Game.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/Conference-Game.data.gz",
-        frameworkUrl: buildUrl + "/Conference-Game.framework.js.gz",
-        codeUrl: buildUrl + "/Conference-Game.wasm.gz",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Swordfish",
-        productName: "Conference-Map_Oddysey",
-        productVersion: "0.5",
+			dataUrl: "Build/Conference-Game-Oddysey-WEB.data.br",
+			frameworkUrl: "Build/Conference-Game-Oddysey-WEB.framework.js.br",
+			codeUrl: "Build/Conference-Game-Oddysey-WEB.wasm.br",
+			streamingAssetsUrl: "StreamingAssets",
+			companyName: "Swordfish",
+			productName: "Conference-Map_Oddysey",
+			productVersion: "0.5",
         // errorHandler: function(err, url, line) {
         //    alert("error " + err + " occurred at line " + line);
         //    // Return 'true' if you handled this error and don't want Unity
@@ -57,23 +57,18 @@
         // },
       };
 
-
-		  createUnityInstance(document.querySelector("#unity-canvas"), {
-			arguments: [],
-			dataUrl: "Build/Conference-Game-Oddysey-WEB.data.br",
-			frameworkUrl: "Build/Conference-Game-Oddysey-WEB.framework.js.br",
-			codeUrl: "Build/Conference-Game-Oddysey-WEB.wasm.br",
-			streamingAssetsUrl: "StreamingAssets",
-			companyName: "Swordfish",
-			productName: "Conference-Map_Oddysey",
-			productVersion: "0.5",
-			// matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-			// devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-		  }).then((unityInstance) => {
+	var script = document.createElement("script");
+	  script.src = loaderUrl;
+	  script.onload = () => {
+		createUnityInstance(canvas, config, (progress) => {
+			  }).then((unityInstance) => {
 				window.unityInstance = unityInstance;
-		  }).catch((message) => {
-			alert(message);
-		  });	  
+
+			  }).catch((message) => {
+				alert(message);
+			  });
+			};
+ 
     </script>
   </body>
 </html>
