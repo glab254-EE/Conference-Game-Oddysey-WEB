@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | Conference-Map_Oddysey</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <div id="unity-container" class="unity-desktop">
@@ -30,6 +32,7 @@
         <div id="unity-build-title">Conference-Map_Oddysey</div>
       </div>
     </div>
+	  <script src="TemplateData/profiler.js"></script>
 	  <script src="html5-qrcode.min.js"></script>
 	  <script src="QRScanner.js"></script>
     <script>
@@ -72,9 +75,9 @@
       var loaderUrl = buildUrl + "/Conference-Game-Oddysey-WEB.loader.js";
       var config = {
         arguments: [],
-			dataUrl: "Build/Conference-Game-Oddysey-WEB.data",
-			frameworkUrl: "Build/Conference-Game-Oddysey-WEB.framework.js",
-			codeUrl: "Build/Conference-Game-Oddysey-WEB.wasm",
+			dataUrl: "Build/Conference-Game-Oddysey-WEB.data.gz",
+			frameworkUrl: "Build/Conference-Game-Oddysey-WEB.framework.js.gz",
+			codeUrl: "Build/Conference-Game-Oddysey-WEB.wasm.gz",
 			streamingAssetsUrl: "StreamingAssets",
 			companyName: "Swordfish",
 			productName: "Conference-Map_Oddysey",
