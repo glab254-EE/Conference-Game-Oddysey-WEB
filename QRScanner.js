@@ -8,7 +8,11 @@ function startScanner() {
     qrScanner.start(
     { facingMode: "environment" }, 
     {
-        fps: 10,    // Optional, frame per seconds for qr code scanning
+        fps: 25,    // Optional, frame per seconds for qr code scanning
+        qrbox: {
+            width: 250,
+            height: 250
+        } ,   
     },
     (decodedText, decodedResult) => {
 		unityInstance.SendMessage(
